@@ -10,108 +10,71 @@ object frmMain: TfrmMain
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   OldCreateOrder = True
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object dxRibbon1: TdxRibbon
+  object ribMain: TdxRibbon
     Left = 0
     Top = 0
     Width = 640
-    Height = 165
-    ApplicationButton.Menu = dxRibbonBackstageView1
-    BarManager = dxBarManager1
+    Height = 157
+    ApplicationButton.Menu = bsvMain
+    BarManager = barmgrMain
     CapitalizeTabCaptions = bDefault
     Style = rs2019
-    ColorSchemeName = 'Colorful'
-    QuickAccessToolbar.Toolbar = dxBarManager1Bar1
+    ColorSchemeName = 'Office2019Colorful'
+    QuickAccessToolbar.Toolbar = barQAT
     SupportNonClientDrawing = True
     Contexts = <>
-    TabAreaToolbar.Toolbar = dxBarManager1Bar2
+    TabAreaSearchToolbar.Toolbar = barTAST
+    TabAreaToolbar.Toolbar = barTAT
     TabOrder = 0
     TabStop = False
-    object dxRibbon1Tab1: TdxRibbonTab
+    object ribtabHome: TdxRibbonTab
       Active = True
-      Caption = 'dxRibbon1Tab1'
+      Caption = 'Home'
       Groups = <>
       Index = 0
     end
   end
-  object dxRibbonBackstageView1: TdxRibbonBackstageView
+  object bsvMain: TdxRibbonBackstageView
     Left = 8
-    Top = 166
+    Top = 171
     Width = 577
     Height = 266
     Buttons = <>
-    Ribbon = dxRibbon1
-    object dxRibbonBackstageViewTabSheet1: TdxRibbonBackstageViewTabSheet
-      Left = 132
-      Top = 0
-      Active = True
-      Caption = 'Recent'
-      DesignSize = (
-        445
-        266)
-      object dxRibbonBackstageViewGalleryControl1: TdxRibbonBackstageViewGalleryControl
-        Left = 12
-        Top = 44
-        Width = 300
-        Height = 208
-        Anchors = [akLeft, akTop, akBottom]
-        BorderStyle = cxcbsNone
-        OptionsView.ColumnAutoWidth = True
-        OptionsView.ColumnCount = 1
-        OptionsView.ContentOffset.All = 0
-        OptionsView.Item.Text.AlignHorz = taLeftJustify
-        OptionsView.Item.Text.AlignVert = vaCenter
-        OptionsView.Item.Text.Position = posRight
-        OptionsView.Item.PinMode = bgipmTag
-        Ribbon = dxRibbon1
-        TabOrder = 0
-        object dxRibbonBackstageViewGalleryControl1Group1: TdxRibbonBackstageViewGalleryGroup
-          ShowCaption = False
-          object dxRibbonBackstageViewGalleryControl1Group1Item1: TdxRibbonBackstageViewGalleryItem
-            Caption = 'New Item'
-            Description = 'New Item Description'
-            ActionIndex = nil
-          end
-        end
-      end
-      object cxLabel1: TcxLabel
-        Left = 12
-        Top = 12
-        AutoSize = False
-        Caption = 'Recent Documents'
-        ParentFont = False
-        Style.Font.Charset = DEFAULT_CHARSET
-        Style.Font.Color = clWindowText
-        Style.Font.Height = -16
-        Style.Font.Name = 'Tahoma'
-        Style.Font.Style = []
-        Style.TransparentBorder = False
-        Style.IsFontAssigned = True
-        Properties.LineOptions.Alignment = cxllaBottom
-        Properties.LineOptions.Visible = True
-        Transparent = True
-        Height = 26
-        Width = 300
-      end
-    end
+    Ribbon = ribMain
   end
-  object dxRibbonStatusBar1: TdxRibbonStatusBar
+  object sbMain: TdxRibbonStatusBar
     Left = 0
     Top = 457
     Width = 640
     Height = 23
-    Panels = <>
-    Ribbon = dxRibbon1
+    Panels = <
+      item
+        PanelStyleClassName = 'TdxStatusBarToolbarPanelStyle'
+        PanelStyle.ToolbarName = 'barPageInfo'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarToolbarPanelStyle'
+        PanelStyle.ToolbarName = 'barKeyState'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarToolbarPanelStyle'
+        PanelStyle.ToolbarName = 'barZoomLevel'
+      end>
+    Ribbon = ribMain
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clDefault
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
   end
-  object dxBarManager1: TdxBarManager
+  object barmgrMain: TdxBarManager
+    AllowCallFromAnotherForm = True
+    AlwaysMerge = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -125,10 +88,10 @@ object frmMain: TfrmMain
       True)
     PopupMenuLinks = <>
     UseSystemFont = True
-    Left = 568
-    Top = 8
+    Left = 448
+    Top = 256
     PixelsPerInch = 96
-    object dxBarManager1Bar1: TdxBar
+    object barQAT: TdxBar
       Caption = 'Quick Access Toolbar'
       CaptionButtons = <>
       DockedLeft = 0
@@ -144,7 +107,7 @@ object frmMain: TfrmMain
       Visible = True
       WholeRow = False
     end
-    object dxBarManager1Bar2: TdxBar
+    object barTAT: TdxBar
       Caption = 'Tab Area Toolbar'
       CaptionButtons = <>
       DockedLeft = 0
@@ -153,28 +116,98 @@ object frmMain: TfrmMain
       FloatTop = 0
       FloatClientWidth = 0
       FloatClientHeight = 0
-      ItemLinks = <
-        item
-          Visible = True
-          ItemName = 'cxBarEditItem1'
-        end>
+      ItemLinks = <>
       OneOnRow = True
       Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
     end
-    object cxBarEditItem1: TcxBarEditItem
-      Caption = 'Text Edit Item'
-      Category = 0
-      Visible = ivAlways
-      PropertiesClassName = 'TcxTextEditProperties'
+    object barTAST: TdxBar
+      Caption = 'Tab Area Search Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 668
+      FloatTop = 2
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barPageInfo: TdxBar
+      Caption = 'Page Information Toolbar'
+      CaptionButtons = <>
+      DockedDockingStyle = dsNone
+      DockedLeft = 0
+      DockedTop = 0
+      DockingStyle = dsNone
+      FloatLeft = 668
+      FloatTop = 2
+      FloatClientWidth = 51
+      FloatClientHeight = 22
+      ItemLinks = <>
+      OneOnRow = True
+      Row = 1
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barKeyState: TdxBar
+      Caption = 'Keyboard State Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1357
+      FloatTop = 636
+      FloatClientWidth = 51
+      FloatClientHeight = 22
+      ItemLinks = <>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barZoomLevel: TdxBar
+      Caption = 'Zoom Level Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1363
+      FloatTop = 730
+      FloatClientWidth = 51
+      FloatClientHeight = 22
+      ItemLinks = <>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
     end
   end
   object dxSkinController1: TdxSkinController
     NativeStyle = False
+    ScrollbarMode = sbmHybrid
     SkinName = 'Office2019Colorful'
-    Left = 536
-    Top = 8
+    ShowFormShadow = bTrue
+    Left = 336
+    Top = 256
+  end
+  object mdimgrMain: TdxTabbedMDIManager
+    Active = True
+    TabProperties.AllowTabDragDrop = True
+    TabProperties.CloseTabWithMiddleClick = True
+    TabProperties.CustomButtons.Buttons = <>
+    TabProperties.Options = [pcoAlwaysShowGoDialogButton, pcoCloseButton, pcoGoDialog, pcoGradient, pcoGradientClientArea, pcoRedrawOnResize]
+    TabProperties.ShowTabHints = True
+    TabProperties.Style = 11
+    Left = 336
+    Top = 328
+    PixelsPerInch = 96
   end
 end

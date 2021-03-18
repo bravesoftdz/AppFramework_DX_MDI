@@ -1,3 +1,28 @@
+// ******************************************************************
+//
+// Program Name   : AppFwk
+// Platform(s)    : Win32, Win64
+// Framework      : VCL
+//
+// Filename       : ATApp.Vcl.Forms.Main.pas/.dfm
+// Date Created   : 17-Mar-2021
+// Author         : Matthew Vesperman
+//
+// Description:
+//
+// Defines the application's main form class.
+//
+// Revision History:
+//
+// v1.00   :   Initial version
+//
+// ******************************************************************
+//
+// COPYRIGHT © 2021 - PRESENT Angelic Technology
+// ALL RIGHTS RESERVED WORLDWIDE
+//
+// ******************************************************************
+
 unit ATApp.Vcl.Forms.Main;
 
 interface
@@ -29,29 +54,29 @@ uses
   dxRibbonCustomizationForm, dxStatusBar, dxRibbonStatusBar,
   dxGallery, dxGalleryControl, dxRibbonBackstageViewGalleryControl,
   cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
-  cxClasses, cxBarEditItem, cxTextEdit, cxContainer, cxEdit, cxLabel;
+  cxClasses, cxBarEditItem, cxTextEdit, cxContainer, cxEdit, cxLabel,
+  ATApp.Attributes, ATApp.Types, cxPC, dxBarBuiltInMenu, dxTabbedMDI;
 
 type
+  /// <summary>
+  ///   Defines the application's main form class.
+  /// </summary>
+  [TATFormType(fteMainForm)]
   TfrmMain = class(TdxRibbonForm)
-    dxBarManager1: TdxBarManager;
-    dxBarManager1Bar1: TdxBar;
-    dxRibbon1: TdxRibbon;
-    dxRibbon1Tab1: TdxRibbonTab;
-    dxRibbonBackstageView1: TdxRibbonBackstageView;
-    dxRibbonBackstageViewTabSheet1: TdxRibbonBackstageViewTabSheet;
-    dxRibbonStatusBar1: TdxRibbonStatusBar;
-    dxRibbonBackstageViewGalleryControl1: TdxRibbonBackstageViewGalleryControl;
-    cxLabel1: TcxLabel;
-    dxRibbonBackstageViewGalleryControl1Group1: TdxRibbonBackstageViewGalleryGroup;
+    barmgrMain: TdxBarManager;
+    barQAT: TdxBar;
+    barTAT: TdxBar;
+    bsvMain: TdxRibbonBackstageView;
     dxSkinController1: TdxSkinController;
-    dxRibbonBackstageViewGalleryControl1Group1Item1: TdxRibbonBackstageViewGalleryItem;
-    dxBarManager1Bar2: TdxBar;
-    cxBarEditItem1: TcxBarEditItem;
+    ribMain: TdxRibbon;
+    ribtabHome: TdxRibbonTab;
+    sbMain: TdxRibbonStatusBar;
+    mdimgrMain: TdxTabbedMDIManager;
+    barTAST: TdxBar;
+    barPageInfo: TdxBar;
+    barKeyState: TdxBar;
+    barZoomLevel: TdxBar;
     procedure FormCreate(Sender: TObject);
-  private
-    { Private declarations }
-  public
-    { Public declarations }
   end;
 
 var

@@ -182,6 +182,12 @@
             <Form>frmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Code Units\ATApp.Types.pas"/>
+        <DCCReference Include="Code Units\ATApp.Attributes.pas"/>
+        <DCCReference Include="Forms\ATApp.Vcl.Forms.Child.Base.pas">
+            <Form>frmBaseChild</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -210,7 +216,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\AppFwk_DXMDI.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\Output\Win32\Debug\Bin\AppFwk_DXMDI.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>AppFwk_DXMDI.exe</RemoteName>
                         <Overwrite>true</Overwrite>
