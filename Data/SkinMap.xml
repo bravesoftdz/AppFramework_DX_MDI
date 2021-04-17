@@ -1,0 +1,135 @@
+<xml xmlns:s='uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882' xmlns:dt='uuid:C2F41010-65B3-11d1-A29F-00AA00C14882' xmlns:rs='urn:schemas-microsoft-com:rowset' xmlns:z='#RowsetSchema'>
+  <s:Schema id='RowsetSchema'>
+    <s:ElementType name='row' content='eltOnly' rs:updatable='true'>
+      <s:AttributeType name='SkinName' rs:number='1' rs:nullable='true' rs:writeunknown='true'>
+        <s:datatype dt:type='string' dt:maxLength='128' rs:dbtype='str' />
+      </s:AttributeType>
+      <s:AttributeType name='SkinPalette' rs:number='2' rs:nullable='true' rs:writeunknown='true'>
+        <s:datatype dt:type='string' dt:maxLength='128' rs:dbtype='str' />
+      </s:AttributeType>
+      <s:AttributeType name='RibbonSkin' rs:number='3' rs:nullable='true' rs:writeunknown='true'>
+        <s:datatype dt:type='string' dt:maxLength='128' rs:dbtype='str' />
+      </s:AttributeType>
+      <s:AttributeType name='ColorMode' rs:number='4' rs:nullable='true' rs:writeunknown='true'>
+        <s:datatype dt:type='string' dt:maxLength='1' rs:dbtype='str' />
+      </s:AttributeType>
+      <s:extends type='rs:rowbase' />
+    </s:ElementType>
+  </s:Schema>
+  <rs:data>
+    <z:row SkinName='Basic' SkinPalette='Blue Dark' RibbonSkin='Basic' ColorMode='D' />
+    <z:row SkinName='Basic' SkinPalette='Default' RibbonSkin='Basic' ColorMode='L' />
+    <z:row SkinName='Basic' SkinPalette='Pine Dark' RibbonSkin='Basic' ColorMode='D' />
+    <z:row SkinName='Basic' SkinPalette='Pine Light' RibbonSkin='Basic' ColorMode='L' />
+    <z:row SkinName='Basic' SkinPalette='Violet Dark' RibbonSkin='Basic' ColorMode='D' />
+    <z:row SkinName='Basic' SkinPalette='Violet Light' RibbonSkin='Basic' ColorMode='L' />
+    <z:row SkinName='Black' SkinPalette='Default' RibbonSkin='Black' ColorMode='L' />
+    <z:row SkinName='Blue' SkinPalette='Default' RibbonSkin='Blue' ColorMode='L' />
+    <z:row SkinName='Blueprint' SkinPalette='Default' RibbonSkin='Blueprint' ColorMode='L' />
+    <z:row SkinName='Caramel' SkinPalette='Default' RibbonSkin='Caramel' ColorMode='L' />
+    <z:row SkinName='Coffee' SkinPalette='Default' RibbonSkin='Coffee' ColorMode='L' />
+    <z:row SkinName='Darkroom' SkinPalette='Default' RibbonSkin='Darkroom' ColorMode='D' />
+    <z:row SkinName='DarkSide' SkinPalette='Default' RibbonSkin='DarkSide' ColorMode='L' />
+    <z:row SkinName='DevExpressDarkStyle' SkinPalette='Default' RibbonSkin='DevExpressDarkStyle' ColorMode='D' />
+    <z:row SkinName='DevExpressStyle' SkinPalette='Default' RibbonSkin='DevExpressStyle' ColorMode='L' />
+    <z:row SkinName='Foggy' SkinPalette='Default' RibbonSkin='Foggy' ColorMode='L' />
+    <z:row SkinName='GlassOceans' SkinPalette='Default' RibbonSkin='GlassOceans' ColorMode='L' />
+    <z:row SkinName='HighContrast' SkinPalette='Default' RibbonSkin='HighContrast' ColorMode='L' />
+    <z:row SkinName='iMaginary' SkinPalette='Default' RibbonSkin='iMaginary' ColorMode='L' />
+    <z:row SkinName='Lilian' SkinPalette='Default' RibbonSkin='Lilian' ColorMode='L' />
+    <z:row SkinName='LiquidSky' SkinPalette='Default' RibbonSkin='LiquidSky' ColorMode='L' />
+    <z:row SkinName='LondonLiquidSky' SkinPalette='Default' RibbonSkin='LondonLiquidSky' ColorMode='L' />
+    <z:row SkinName='McSkin' SkinPalette='Default' RibbonSkin='McSkin' ColorMode='L' />
+    <z:row SkinName='Metropolis' SkinPalette='Default' RibbonSkin='Metropolis' ColorMode='L' />
+    <z:row SkinName='MetropolisDark' SkinPalette='Default' RibbonSkin='MetropolisDark' ColorMode='D' />
+    <z:row SkinName='MoneyTwins' SkinPalette='Default' RibbonSkin='MoneyTwins' ColorMode='L' />
+    <z:row SkinName='Office2007Black' SkinPalette='Default' RibbonSkin='Office2007Black' ColorMode='L' />
+    <z:row SkinName='Office2007Blue' SkinPalette='Default' RibbonSkin='Office2007Blue' ColorMode='L' />
+    <z:row SkinName='Office2007Green' SkinPalette='Default' RibbonSkin='Office2007Green' ColorMode='L' />
+    <z:row SkinName='Office2007Pink' SkinPalette='Default' RibbonSkin='Office2007Pink' ColorMode='L' />
+    <z:row SkinName='Office2007Silver' SkinPalette='Default' RibbonSkin='Office2007Silver' ColorMode='L' />
+    <z:row SkinName='Office2010Black' SkinPalette='Default' RibbonSkin='Office2010Black' ColorMode='D' />
+    <z:row SkinName='Office2010Blue' SkinPalette='Default' RibbonSkin='Office2010Blue' ColorMode='L' />
+    <z:row SkinName='Office2010Silver' SkinPalette='Default' RibbonSkin='Office2010Silver' ColorMode='L' />
+    <z:row SkinName='Office2013DarkGray' SkinPalette='Default' RibbonSkin='Office2013DarkGray' ColorMode='L' />
+    <z:row SkinName='Office2013LightGray' SkinPalette='Default' RibbonSkin='Office2013LightGray' ColorMode='L' />
+    <z:row SkinName='Office2013White' SkinPalette='Default' RibbonSkin='Office2013White' ColorMode='L' />
+    <z:row SkinName='Office2016Colorful' SkinPalette='Default' RibbonSkin='Colorful' ColorMode='L' />
+    <z:row SkinName='Office2016Dark' SkinPalette='Default' RibbonSkin='Office2016Dark' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Amber' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Default' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Fire Brick' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Forest' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Pine' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Plum' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Black' SkinPalette='Yale' RibbonSkin='Office2019Black' ColorMode='D' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Amber' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Default' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Fire Brick' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Forest' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Pine' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Plum' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019Colorful' SkinPalette='Yale' RibbonSkin='Office2019Colorful' ColorMode='L' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Amber' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Default' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Fire Brick' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Forest' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Pine' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Plum' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019DarkGray' SkinPalette='Yale' RibbonSkin='Office2019DarkGray' ColorMode='D' />
+    <z:row SkinName='Office2019White' SkinPalette='Amber' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Office2019White' SkinPalette='Default' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Office2019White' SkinPalette='Fire Brick' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Office2019White' SkinPalette='Forest' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Office2019White' SkinPalette='Pine' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Office2019White' SkinPalette='Plum' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Office2019White' SkinPalette='Yale' RibbonSkin='Office2019White' ColorMode='L' />
+    <z:row SkinName='Pumpkin' SkinPalette='Default' RibbonSkin='Pumpkin' ColorMode='D' />
+    <z:row SkinName='Seven' SkinPalette='Default' RibbonSkin='Seven' ColorMode='L' />
+    <z:row SkinName='SevenClassic' SkinPalette='Default' RibbonSkin='SevenClassic' ColorMode='L' />
+    <z:row SkinName='Sharp' SkinPalette='Default' RibbonSkin='Sharp' ColorMode='L' />
+    <z:row SkinName='SharpPlus' SkinPalette='Default' RibbonSkin='SharpPlus' ColorMode='D' />
+    <z:row SkinName='Silver' SkinPalette='Default' RibbonSkin='Silver' ColorMode='L' />
+    <z:row SkinName='Springtime' SkinPalette='Default' RibbonSkin='Springtime' ColorMode='L' />
+    <z:row SkinName='Stardust' SkinPalette='Default' RibbonSkin='Stardust' ColorMode='L' />
+    <z:row SkinName='Summer2008' SkinPalette='Default' RibbonSkin='Summer2008' ColorMode='L' />
+    <z:row SkinName='TheAsphaltWorld' SkinPalette='Default' RibbonSkin='TheAsphaltWorld' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Aquarelle' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Art House' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Blackberry Shake' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Blue Velvet' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='BW' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Cherry Ink' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Crambe' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Dark Turquoise' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Date Fruit' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Default' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Dragonfly' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Fireball' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Ghost Shark' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Gloom Gloom' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Grasshopper' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Leaf Rustle' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Mercury Ice' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Milk Snake' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Moray Eel' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Nebula' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Neon Lollipop' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Norwegian Wood' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Oxygen 3' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Plastic Space' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Prometheus' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Starshine' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Tokyo' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Vacuum' RibbonSkin='TheBezier' ColorMode='L' />
+    <z:row SkinName='TheBezier' SkinPalette='Volcano' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='TheBezier' SkinPalette='Witch Rave' RibbonSkin='TheBezier' ColorMode='D' />
+    <z:row SkinName='Valentine' SkinPalette='Default' RibbonSkin='Valentine' ColorMode='L' />
+    <z:row SkinName='VisualStudio2013Blue' SkinPalette='Default' RibbonSkin='VisualStudio2013Blue' ColorMode='L' />
+    <z:row SkinName='VisualStudio2013Dark' SkinPalette='Default' RibbonSkin='VisualStudio2013Dark' ColorMode='D' />
+    <z:row SkinName='VisualStudio2013Light' SkinPalette='Default' RibbonSkin='VisualStudio2013Light' ColorMode='L' />
+    <z:row SkinName='VS2010' SkinPalette='Default' RibbonSkin='VS2010' ColorMode='L' />
+    <z:row SkinName='Whiteprint' SkinPalette='Default' RibbonSkin='Whiteprint' ColorMode='L' />
+    <z:row SkinName='Xmas2008Blue' SkinPalette='Default' RibbonSkin='Xmas2008Blue' ColorMode='L' />
+  </rs:data>
+</xml>
