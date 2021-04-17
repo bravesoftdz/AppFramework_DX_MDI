@@ -40,6 +40,8 @@ type
     sknctlMain: TdxSkinController;
     stylrepoMain: TcxStyleRepository;
     vtblSkinMap: TVirtualTable;
+    fldSkinMapMainWinIcon: TStringField;
+    fldSkinMapDocWinIcon: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   strict private
@@ -49,6 +51,8 @@ type
     FSkinPalette: string;
     function _GetColorMode: TEvtUIColorMode;
     function _GetRibbonSkinName: string;
+    procedure _LoadConfigSettings;
+    procedure _SaveConfigSettings;
   public
     [Subscribe(TThreadMode.Main)]
     procedure OnChangeTouchMode(AEvent: IEvtUIChangeTouchMode);
@@ -72,12 +76,15 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 uses
-  System.Variants;
+  System.Variants, ATApp.Config.Defaults.Consts,
+  ATApp.Config.Keys.Consts, ATApp.Config, ATApp.Config.Section.Consts;
 
 {$R *.dfm}
 
 procedure TdmThemeing.DataModuleCreate(Sender: TObject);
 begin
+
+  _LoadConfigSettings;
 
   vtblSkinMap.Open;
 
@@ -100,6 +107,8 @@ begin
   GlobalEventBus.UnregisterForEvents( Self );
 
   vtblSkinMap.Close;
+
+  _SaveConfigSettings;
 
 end;
 
@@ -228,6 +237,32 @@ begin
     Result := vtblSkinMap.FieldByName('RibbonSkin').AsString
   else
     Result := FSkinName;
+
+end;
+
+procedure TdmThemeing._LoadConfigSettings;
+begin
+
+  var ASkinName := sknctlMain.SkinName;
+  var APaletteName := sknctlMain.SkinPaletteName;
+  var ATouch := sknctlMain.TouchMode;
+
+  sknctlMain.SkinName := Config(False).ReadString(cCfgSecUI, cCfgKeySkinName, ASkinName);
+  sknctlMain.SkinPaletteName := Config(False).ReadString(cCfgSecUI, cCfgKeySkinPalette, APaletteName);
+  sknctlMain.TouchMode := Config(False).ReadBoolean(cCfgSecUI, cCfgKeyTouchMode, ATouch);
+
+end;
+
+procedure TdmThemeing._SaveConfigSettings;
+begin
+
+  var ASkinName := sknctlMain.SkinName;
+  var APaletteName := sknctlMain.SkinPaletteName;
+  var ATouch := sknctlMain.TouchMode;
+
+  Config(False).WriteString(cCfgSecUI, cCfgKeySkinName, ASkinName);
+  Config(False).WriteString(cCfgSecUI, cCfgKeySkinPalette, APaletteName);
+  Config(False).WriteBoolean(cCfgSecUI, cCfgKeyTouchMode, ATouch);
 
 end;
 

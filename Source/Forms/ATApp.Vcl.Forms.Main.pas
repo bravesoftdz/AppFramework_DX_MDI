@@ -63,7 +63,7 @@ uses
   ATApp.Attributes, ATApp.Types, ATApp.DEB.UISkin, ATApp.DEB.IconSets,
   ATApp.DEB.MainForm, ATApp.DEB.UI,
   EventBus, AT.Vcl.Actions.Data, dxCore, dxBarExtItems,
-  AT.dxOfficeSearchBox2;
+  AT.dxOfficeSearchBox2, PJWdwState;
 
 type
   /// <summary>
@@ -112,6 +112,7 @@ type
     ribtabUI: TdxRibbonTab;
     sbMain: TdxRibbonStatusBar;
     skngalUISkin: TdxSkinChooserGalleryItem;
+    wdwstMain: TPJUserWdwState;
     procedure ExecuteInfoBarVisibleAction(Sender: TObject);
     procedure ExecuteQATAboveAction(Sender: TObject);
     procedure ExecuteQATBelowAction(Sender: TObject);
@@ -130,9 +131,15 @@ type
     procedure UpdateSBVisibleAction(Sender: TObject);
     procedure UpdateSearchBarVisibleAction(Sender: TObject);
     procedure UpdateUIPaletteAction(Sender: TObject);
+    procedure WindowStateReadDataHandler(Sender: TObject; var Data:
+        TPJWdwStateData);
+    procedure WindowStateSaveDataHandler(Sender: TObject; const Data:
+        TPJWdwStateData);
   strict private
     FTouchMode: Boolean;
     FUpdatingSkinProps: Boolean;
+    procedure _LoadConfigSettings;
+    procedure _SaveConfigSettings;
     procedure _UpdateBarGlyphs(AImgList: TCustomImageList);
     procedure _UpdateBSVIconSet;
     procedure _UpdateIconSets;
@@ -194,7 +201,9 @@ uses
   AT.Automate, AT.Rtti, dxGDIPlusClasses,
   ATApp.Vcl.DM.Themeing, ATApp.Vcl.DM.StdDialogs, ATApp.Vcl.DM.Images,
   AT.Props.Consts, ATApp.ImgIndex.Consts, ATApp.Vcl.DM.AppActions,
-  ATApp.RibbonUtils, ATApp.ActionUtils, ATApp.StatusBar.Consts;
+  ATApp.RibbonUtils, ATApp.ActionUtils, ATApp.StatusBar.Consts,
+  ATApp.Config.Defaults.Consts, ATApp.Config.Keys.Consts,
+  ATApp.Config, ATApp.Config.Section.Consts;
 
 procedure TfrmMain.ExecuteInfoBarVisibleAction(Sender: TObject);
 begin
@@ -519,6 +528,89 @@ begin
 
   AT.Rtti.SetPropertyValue(Sender, cPropEnabled, True);
   AT.Rtti.SetPropertyValue(Sender, cPropVisible, bVisible);
+
+end;
+
+procedure TfrmMain.WindowStateReadDataHandler(Sender: TObject; var Data:
+    TPJWdwStateData);
+begin
+
+  var ALeft := Data.Left;
+  var ATop := Data.Top;
+  var AWid := Data.Width;
+  var AHgt := Data.Height;
+  var AState := Data.State;
+
+  Data.Left := Config(False).ReadInteger(cCfgSecMainWin, cCfgKeyLeft, ALeft);
+  Data.Top := Config(False).ReadInteger(cCfgSecMainWin, cCfgKeyTop, ATop);
+  Data.Width := Config(False).ReadInteger(cCfgSecMainWin, cCfgKeyWidth, AWid);
+  Data.Height := Config(False).ReadInteger(cCfgSecMainWin, cCfgKeyHeight, AHgt);
+  Data.State := Config(False).ReadInteger(cCfgSecMainWin, cCfgKeyState, AState);
+
+  _LoadConfigSettings;
+
+end;
+
+procedure TfrmMain.WindowStateSaveDataHandler(Sender: TObject; const Data:
+    TPJWdwStateData);
+begin
+
+  var ALeft := Data.Left;
+  var ATop := Data.Top;
+  var AWid := Data.Width;
+  var AHgt := Data.Height;
+  var AState := Data.State;
+
+  Config(False).WriteInteger(cCfgSecMainWin, cCfgKeyLeft, ALeft);
+  Config(False).WriteInteger(cCfgSecMainWin, cCfgKeyTop, ATop);
+  Config(False).WriteInteger(cCfgSecMainWin, cCfgKeyWidth, AWid);
+  Config(False).WriteInteger(cCfgSecMainWin, cCfgKeyHeight, AHgt);
+  Config(False).WriteInteger(cCfgSecMainWin, cCfgKeyState, AState);
+
+  _SaveConfigSettings;
+
+end;
+
+procedure TfrmMain._LoadConfigSettings;
+begin
+
+  var AQATVis := QATVisible;
+  var AQATPos := QATPosition;
+  var AQATPosVal := Ord(AQATPos);
+
+  var AInfoBarVis := InfoBarVisible;
+  var ASrchBarVis := SearchBarVisible;
+  var ASBVis := StatusBarVisible;
+
+  QATVisible := Config(False).ReadBoolean(cCfgSecMainWin, cCfgKeyQATVisible, AQATVis);
+
+  AQATPosVal := Config(False).ReadInteger(cCfgSecMainWin, cCfgKeyQATPosition, AQATPosVal);
+  QATPosition := TdxQuickAccessToolbarPosition(AQATPosVal);
+
+  InfoBarVisible := Config(False).ReadBoolean(cCfgSecMainWin, cCfgKeyInfoBarVisible, AInfoBarVis);
+  SearchBarVisible := Config(False).ReadBoolean(cCfgSecMainWin, cCfgKeySearchBarVisible, ASrchBarVis);
+  StatusBarVisible := Config(False).ReadBoolean(cCfgSecMainWin, cCfgKeyStatusBarVisible, ASBVis);
+
+end;
+
+procedure TfrmMain._SaveConfigSettings;
+begin
+
+  var AQATVis := QATVisible;
+  var AQATPos := QATPosition;
+  var AQATPosVal := Ord(AQATPos);
+
+  var AInfoBarVis := InfoBarVisible;
+  var ASrchBarVis := SearchBarVisible;
+  var ASBVis := StatusBarVisible;
+
+  Config(False).WriteBoolean(cCfgSecMainWin, cCfgKeyQATVisible, AQATVis);
+
+  Config(False).WriteInteger(cCfgSecMainWin, cCfgKeyQATPosition, AQATPosVal);
+
+  Config(False).WriteBoolean(cCfgSecMainWin, cCfgKeyInfoBarVisible, AInfoBarVis);
+  Config(False).WriteBoolean(cCfgSecMainWin, cCfgKeySearchBarVisible, ASrchBarVis);
+  Config(False).WriteBoolean(cCfgSecMainWin, cCfgKeyStatusBarVisible, ASBVis);
 
 end;
 
