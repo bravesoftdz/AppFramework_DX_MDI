@@ -13,7 +13,9 @@ object frmBaseChild: TfrmBaseChild
   FormStyle = fsMDIChild
   OldCreateOrder = False
   Visible = True
+  OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object ribChild: TdxRibbon
@@ -28,8 +30,8 @@ object frmBaseChild: TfrmBaseChild
     QuickAccessToolbar.Toolbar = barQAT
     SupportNonClientDrawing = True
     Contexts = <>
-    TabAreaSearchToolbar.Toolbar = barTAST
-    TabAreaToolbar.Toolbar = barTAT
+    TabAreaSearchToolbar.Toolbar = barSearchBar
+    TabAreaToolbar.Toolbar = barInfoBar
     TabOrder = 0
     TabStop = False
     object ribtabHome: TdxRibbonTab
@@ -37,10 +39,45 @@ object frmBaseChild: TfrmBaseChild
       Caption = 'Home'
       Groups = <
         item
+          ToolbarName = 'barFile'
+        end
+        item
           ToolbarName = 'barmgrChildBar1'
         end>
       Index = 0
     end
+  end
+  object sbChild: TdxRibbonStatusBar
+    Left = 0
+    Top = 373
+    Width = 553
+    Height = 24
+    Panels = <
+      item
+        PanelStyleClassName = 'TdxStatusBarToolbarPanelStyle'
+        PanelStyle.ToolbarName = 'barPageInfo'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Fixed = False
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarToolbarPanelStyle'
+        PanelStyle.ToolbarName = 'barKeyState'
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarToolbarPanelStyle'
+        PanelStyle.ToolbarName = 'barZoomLevel'
+        Bevel = dxpbNone
+      end>
+    Ribbon = ribChild
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clDefault
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Visible = False
+    ExplicitTop = 371
   end
   object barmgrChild: TdxBarManager
     AllowCallFromAnotherForm = True
@@ -56,6 +93,12 @@ object frmBaseChild: TfrmBaseChild
       2)
     Categories.Visibles = (
       True)
+    ImageOptions.Images = dmImages.ilstLightSm
+    ImageOptions.LargeImages = dmImages.ilstLightLg
+    ImageOptions.LargeIcons = True
+    ImageOptions.MakeDisabledImagesFaded = True
+    ImageOptions.SmoothGlyphs = True
+    ImageOptions.UseLargeImagesForLargeIcons = True
     PopupMenuLinks = <>
     UseSystemFont = True
     Left = 120
@@ -73,7 +116,7 @@ object frmBaseChild: TfrmBaseChild
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'cmd1'
+          ItemName = 'cmdFileClose'
         end>
       OneOnRow = True
       Row = 0
@@ -81,19 +124,19 @@ object frmBaseChild: TfrmBaseChild
       Visible = True
       WholeRow = False
     end
-    object barTAT: TdxBar
-      Caption = 'Tab Area Toolbar'
+    object barInfoBar: TdxBar
+      Caption = 'InfoBar'
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
       FloatLeft = 801
       FloatTop = 730
-      FloatClientWidth = 79
-      FloatClientHeight = 42
+      FloatClientWidth = 51
+      FloatClientHeight = 54
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'cmd1'
+          ItemName = 'cmdFileClose'
         end>
       OneOnRow = True
       Row = 0
@@ -101,8 +144,8 @@ object frmBaseChild: TfrmBaseChild
       Visible = True
       WholeRow = False
     end
-    object barmgrChildBar1: TdxBar
-      Caption = 'Custom 1'
+    object barFile: TdxBar
+      Caption = 'File'
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
@@ -113,27 +156,27 @@ object frmBaseChild: TfrmBaseChild
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'cmd1'
+          ItemName = 'cmdFileClose'
         end>
       OneOnRow = True
-      Row = 0
+      Row = 1
       UseOwnFont = False
       Visible = True
       WholeRow = False
     end
-    object barTAST: TdxBar
-      Caption = 'Tab Area Search Toolbar'
+    object barSearchBar: TdxBar
+      Caption = 'Search Bar'
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
       FloatLeft = 581
       FloatTop = 2
-      FloatClientWidth = 0
-      FloatClientHeight = 0
+      FloatClientWidth = 51
+      FloatClientHeight = 54
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'cmd1'
+          ItemName = 'cmdFileClose'
         end>
       OneOnRow = True
       Row = 0
@@ -144,10 +187,71 @@ object frmBaseChild: TfrmBaseChild
     object barPageInfo: TdxBar
       Caption = 'Page Information Toolbar'
       CaptionButtons = <>
-      DockedDockingStyle = dsTop
       DockedLeft = 0
       DockedTop = 0
-      DockingStyle = dsTop
+      FloatLeft = 581
+      FloatTop = 2
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      Hidden = True
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'cmdFileClose'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barKeyState: TdxBar
+      Caption = 'Keyboard State Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 581
+      FloatTop = 2
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      Hidden = True
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'cmdFileClose'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barZoomLevel: TdxBar
+      Caption = 'Zoom Level Toolbar'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 581
+      FloatTop = 2
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      Hidden = True
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'cmdFileClose'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barmgrChildBar1: TdxBar
+      Caption = 'Custom 1'
+      CaptionButtons = <>
+      DockedLeft = 52
+      DockedTop = 0
       FloatLeft = 581
       FloatTop = 2
       FloatClientWidth = 0
@@ -160,59 +264,30 @@ object frmBaseChild: TfrmBaseChild
       OneOnRow = True
       Row = 0
       UseOwnFont = False
-      Visible = False
+      Visible = True
       WholeRow = False
     end
-    object barKeyState: TdxBar
-      Caption = 'Keyboard State Toolbar'
-      CaptionButtons = <>
-      DockedDockingStyle = dsTop
-      DockedLeft = 0
-      DockedTop = 0
-      DockingStyle = dsTop
-      FloatLeft = 581
-      FloatTop = 2
-      FloatClientWidth = 0
-      FloatClientHeight = 0
-      ItemLinks = <
-        item
-          Visible = True
-          ItemName = 'cmd1'
-        end>
-      OneOnRow = True
-      Row = 1
-      UseOwnFont = False
-      Visible = False
-      WholeRow = False
-    end
-    object barZoomLevel: TdxBar
-      Caption = 'Zoom Level Toolbar'
-      CaptionButtons = <>
-      DockedDockingStyle = dsTop
-      DockedLeft = 0
-      DockedTop = 0
-      DockingStyle = dsTop
-      FloatLeft = 581
-      FloatTop = 2
-      FloatClientWidth = 0
-      FloatClientHeight = 0
-      ItemLinks = <
-        item
-          Visible = True
-          ItemName = 'cmd1'
-        end>
-      OneOnRow = True
-      Row = 2
-      UseOwnFont = False
-      Visible = False
-      WholeRow = False
+    object cmdFileClose: TdxBarLargeButton
+      Action = actFileClose
+      Category = 0
     end
     object cmd1: TdxBarLargeButton
-      Caption = 'New Button'
+      Caption = 'Ask Question'
       Category = 0
-      Hint = 'New Button'
+      Hint = 'Ask Question'
       Visible = ivAlways
       OnClick = cmd1Click
+      LargeImageIndex = 0
+    end
+  end
+  object alstChild: TActionList
+    Images = dmImages.ilstLightSm
+    Left = 272
+    Top = 208
+    object actFileClose: TAction
+      Caption = 'Close'
+      ImageIndex = 80
+      OnExecute = ExecuteFileCloseAction
     end
   end
 end

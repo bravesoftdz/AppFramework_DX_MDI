@@ -1,10 +1,10 @@
 [ExpressSkins]
-Default=1
+Default=0
 ShowNotifications=1
 Enabled=1
 dxSkinBasic=1
-dxSkinBlack=0
-dxSkinBlue=0
+dxSkinBlack=1
+dxSkinBlue=1
 dxSkinBlueprint=1
 dxSkinCaramel=1
 dxSkinCoffee=1
@@ -45,7 +45,7 @@ dxSkinSeven=1
 dxSkinSevenClassic=1
 dxSkinSharp=1
 dxSkinSharpPlus=1
-dxSkinSilver=0
+dxSkinSilver=1
 dxSkinSpringtime=1
 dxSkinStardust=1
 dxSkinSummer2008=1

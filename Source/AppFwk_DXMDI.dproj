@@ -104,6 +104,9 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=Angelic Technology LLC;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=Copyright © 2021 Angelic Technology LLC;LegalTrademarks=;OriginalFilename=;ProgramID=com.angelictech.appfwk.dxmdi;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;Bitness=</VerInfo_Keys>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Define>EUREKALOG_VER7;EUREKALOG;$(DCC_Define)</DCC_Define>
+        <DCC_MapFile>3</DCC_MapFile>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;tethering;ATFmxCtlAdv_D27;FireDACDBXDriver;RESTBackendComponents;FMXTMSFNCUIPackPkgDXE13;bindengine;CloudService;RemObjects_Indy_D27;DataSnapClient;bindcompdbx;IndyIPServer;IndySystem;fmxFireDAC;FMXTee;ATFmxGraphics_D27;soaprtl;DbxCommonDriver;xmlrtl;soapmidas;DataSnapNativeClient;rtl;DbxClientDriver;ATFmxCtlStd_D27;IndyIPClient;DataSnapProviderClient;RemObjects_Server_Indy_D27;RESTComponents;DBXInterBaseDriver;TMSLogging;emsclientfiredac;DataSnapFireDAC;TMSScripter;bindcompfmx;FmxTeeUI;fmx;FireDACIBDriver;dbexpress;IndyCore;dsnap;emsclient;DataSnapCommon;FireDACCommon;ATFmxActions_D27;soapserver;FireDACCommonDriver;inet;IndyIPCommon;DataAbstract_SpiderMonkeyScripting_D27;FMXTMSFNCCorePkgDXE13;FireDAC;ATSystem_D27;FireDACSqliteDriver;ibmonitor;ATFmxLayouts_D27;ibxpress;ibxbindings;FireDACDSDriver;CustomIPTransport;bindcomp;dbxcds;RemObjects_WebBroker_D27;dsnapxml;dbrtl;IndyProtocols;$(DCC_UsePackage)</DCC_UsePackage>
@@ -178,16 +181,63 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Forms\ATApp.Vcl.Forms.Main.pas">
-            <Form>frmMain</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\Common\AT.Defines.VCL.pas"/>
         <DCCReference Include="Code Units\ATApp.Types.pas"/>
         <DCCReference Include="Code Units\ATApp.Attributes.pas"/>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\Common\AT.Automate.pas"/>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\Common\AT.Rtti.Automate.pas"/>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\VCL\AT.Vcl.Automate.pas"/>
+        <DCCReference Include="Forms\ATApp.Vcl.Forms.Main.pas">
+            <Form>frmMain</Form>
+        </DCCReference>
         <DCCReference Include="Forms\ATApp.Vcl.Forms.Child.Base.pas">
             <Form>frmBaseChild</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Code Units\ATApp.Attributes.Vcl.Utils.pas"/>
+        <DCCReference Include="Code Units\ATApp.Config.Section.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.Config.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.Config.Keys.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.Config.Defaults.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.Config.pas"/>
+        <DCCReference Include="Code Units\ATApp.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.UI.Types.pas"/>
+        <DCCReference Include="Code Units\ATApp.ResourceStrings.pas"/>
+        <DCCReference Include="Data Modules\ATApp.Vcl.DM.Themeing.pas">
+            <Form>dmThemeing</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Data Modules\ATApp.Vcl.DM.Splash.pas">
+            <Form>dmSplash</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Data Modules\ATApp.Vcl.DM.AppActions.pas">
+            <Form>dmAppActions</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Data Modules\ATApp.Vcl.DM.Images.pas">
+            <Form>dmImages</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\DEB\AT.DEB.Events.StdDialogs.pas"/>
+        <DCCReference Include="Data Modules\ATApp.Vcl.DM.StdDialogs.pas">
+            <Form>dmStdDialogs</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\VCL\AT.Vcl.DX.Dialog.Task.pas">
+            <Form>frmATDXTaskDialog</Form>
+        </DCCReference>
+        <DCCReference Include="Code Units\ATApp.DEB.UISkin.pas"/>
+        <DCCReference Include="Code Units\ATApp.DEB.IconSets.pas"/>
+        <DCCReference Include="Code Units\ATApp.DEB.MainForm.pas"/>
+        <DCCReference Include="D:\Components\RS27\AngelicTech\Source\Common\AT.Props.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.DEB.UI.pas"/>
+        <DCCReference Include="Code Units\ATApp.ImgIndex.Consts.pas"/>
+        <DCCReference Include="Code Units\ATApp.RibbonUtils.pas"/>
+        <DCCReference Include="Code Units\ATApp.ActionUtils.pas"/>
+        <DCCReference Include="Code Units\ATApp.StatusBar.Consts.pas"/>
+        <DCCReference Include="DX Overrides\dxRibbonSkins2019.pas"/>
+        <None Include="..\README.md"/>
+        <None Include="..\LICENSE"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -216,9 +266,21 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="..\README.md" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\Output\Win32\Debug\Bin\AppFwk_DXMDI.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>AppFwk_DXMDI.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\LICENSE" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
